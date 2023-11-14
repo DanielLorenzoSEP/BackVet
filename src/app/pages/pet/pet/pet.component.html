@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="back" (click)="goBack()">
+    <span>Volver</span>
+  </div>
+  <div class="info">
+    <div class="text">
+      <p><span>Nombre:</span> {{ pet.name }}</p>
+      <p><span>Sexo:</span> {{ pet.sex }}</p>
+      <p><span>Fecha </span>de nacimiento: {{ pet.birthdate }}</p>
+      <p><span>Especie:</span> {{ pet.specie }}</p>
+      <p><span>Raza:</span> {{ pet.race }}</p>
+      <p><span>Tamaño:</span> {{ pet.weight }} kg</p>
+    </div>
+    <div class="buttons-pet">
+      <button class="update" mat-icon-button (click)="openEditDialog()">
+        <span>Editar</span>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="delete" mat-icon-button (click)="deletePet(pet.id)">
+        <span>Eliminar</span>
+        <mat-icon class="deleteIcon">delete_forever</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="medic">
+      <mat-icon>medical_services</mat-icon>
+      <p>Historial Médico</p>
+    </div>
+    <h5>Diagnósticos</h5>
+    <h3 *ngIf="prescriptions.length === 0">
+      {{ pet.name }} aun no tiene diagnósticos</h3>
+    <!-- Aquí va tu tabla de Angular Material -->
+    <div class="table">
+      <table mat-table [dataSource]="prescriptions" class="mat-elevation-z8">
+        <!-- Columnas de la tabla -->
+        <ng-container matColumnDef="symtomps">
+          <th mat-header-cell *matHeaderCellDef> Síntomas </th>
+          <td mat-cell *matCellDef="let prescription"> {{ prescription.symtomps }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="diagnosis">
+          <th mat-header-cell *matHeaderCellDef> Diagnóstico </th>
+          <td mat-cell *matCellDef="let prescription"> {{ prescription.diagnosis }} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Estatus </th>
+        <td mat-cell *matCellDef="let prescription"> {{ prescription.status }} </td>
+      </ng-container> -->
+
+        <ng-container matColumnDef="creationDate">
+          <th mat-header-cell *matHeaderCellDef> Fecha de creación </th>
+          <td mat-cell *matCellDef="let prescription"> {{ prescription.creationDate }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="doctor">
+          <th mat-header-cell *matHeaderCellDef> Doctor </th>
+          <td mat-cell *matCellDef="let prescription"> {{ prescription.doctors[0].name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>
+            <button class="btnAdd" mat-icon-button (click)="addPrescription()">
+              <mat-icon class="add">library_add</mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let prescription">
+            <!-- Botones para editar o eliminar el historial médico -->
+            <button mat-icon-button (click)="deletePrescription(prescription.id, $event)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Define más columnas aquí para mostrar otras propiedades del historial médico -->
+
+        <!-- Encabezados de la tabla -->
+        <tr mat-header-row *matHeaderRowDef="['symtomps', 'diagnosis', 'creationDate', 'doctor', 'actions']">
+        </tr>
+
+        <!-- Filas de la tabla -->
+        <tr mat-row
+          *matRowDef="let prescription; columns: ['symtomps', 'diagnosis', 'creationDate', 'doctor', 'actions']"
+          (click)="onClickRow(prescription)"></tr>
+      </table>
+    </div>
+  </div>
+
+</div>

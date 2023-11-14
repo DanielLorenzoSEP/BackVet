@@ -1,0 +1,372 @@
+.container {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.back {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    padding: .44rem 1rem;
+    border-bottom-right-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #0060b0;
+    color: white;
+}
+
+.back::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    border-style: solid;
+    border-color: transparent #0060b0;
+    border-width: 17px 15px 17px 0;
+    width: 0;
+    height: 0;
+}
+
+.back span {
+    font-size: 1.2rem;
+    font-weight: 200;
+}
+
+.client {
+    margin: auto;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+}
+
+.client-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+.client-form input {
+    padding: .5rem 2rem;
+    width: 50%;
+    font-size: 20px;
+    margin-top: .5rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #0060b0;
+    /*2e82d7*/
+}
+
+.text span {
+    font-weight: 550;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    width: 50%;
+}
+
+.buttons button {
+    width: 80%;
+    height: 3rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #1e90ff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.delete:hover {
+    background-color: #ff0000 !important;
+    color: #fff !important;
+}
+
+.update {
+    background-color: #fff !important;
+    color: #1e90ff !important;
+    border: 1px solid #1e90ff !important;
+}
+
+.update:hover {
+    background-color: #1e90ff !important;
+    color: #fff !important;
+}
+
+.delete {
+    background-color: #fff !important;
+    color: #ff0000 !important;
+    border: 1px solid #ff0000 !important;
+}
+
+.nopets {
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.pets-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 2rem !important;
+}
+
+.pet-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 !important;
+}
+
+.text {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.photo {
+    width: 50%;
+    border-left: 8px double #2e82d7;
+    overflow: hidden;
+}
+
+
+.pet {
+    margin-bottom: 2rem;
+    width: 30%;
+    margin: auto;
+    transition: all 0.5s ease-in-out;
+    justify-content: center;
+}
+
+.pet-touched {
+    width: 80%;
+    margin: 2rem auto !important;
+    transition: all 0.5s ease-in-out;
+    justify-content: space-between;
+}
+
+.pet:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.photo::-webkit-scrollbar {
+    width: 8px;
+    /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo del pulgar del scroll */
+.photo::-webkit-scrollbar-thumb {
+    background-color: #0060b0;
+    /* Color del pulgar */
+    border-radius: 6px;
+    /* Bordes redondeados del pulgar */
+}
+
+/* Estilo del fondo de la barra de desplazamiento */
+.photo::-webkit-scrollbar-track {
+    background-color: #4a90d6;
+    /* Color del fondo de la barra de desplazamiento */
+}
+
+.buttons-pets {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+}
+
+.btnPet {
+    margin: auto;
+    width: 50% !important;
+    margin-top: 1rem;
+}
+
+.addPet {
+    display: block;
+    margin: auto;
+    width: 50% !important;
+    margin-bottom: 1rem;
+}
+
+
+.table-container {
+    margin: auto;
+    margin-top: 2rem;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
+}
+
+.table-container h4 {
+    margin: 0;
+    padding: 2rem 0;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #000;
+    font-family: serif;
+}
+
+.dialog {
+    z-index: 1;
+}
+
+.table-container h3 {
+    margin: 0;
+    padding: 2rem 0;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #000;
+    font-family: serif;
+}
+
+table {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+th {
+    border-bottom: thin solid black;
+}
+
+td,
+th {
+    color: #000;
+}
+
+tr.mat-mdc-row:hover {
+    background-color: #0060b0;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #ccc !important;
+}
+
+tr:nth-child(even):hover {
+    background-color: #0060b0 !important;
+}
+
+tr.mat-mdc-row:hover td {
+    color: #fff;
+}
+
+tr.mat-mdc-row:hover mat-icon {
+    color: #fff;
+}
+
+mat-icon {
+    color: #0060b0;
+}
+
+.btnPet {
+    margin: 0;
+    width: 100%;
+}
+
+.btnPet mat-icon {
+    font-size: 28px;
+}
+
+.icon-pet {
+    padding-left: 0;
+}
+
+.mat-column-name,
+.mat-column-specie,
+.mat-column-race,
+.mat-column-actions {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    text-align: center !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-actions {
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    border-right: none;
+    text-align: left;
+}
+
+
+/* Ajustar estilos cuando la pantalla sea más pequeña */
+@media (max-width: 768px) {
+    .client {
+        flex-direction: column;
+    }
+
+    .client>* {
+        flex-basis: 100%;
+        /* Puedes ajustar el padding para dar un poco de espacio entre los elementos */
+        padding: 10px 0;
+    }
+
+    .buttons {
+        margin-top: 1.5rem;
+    }
+
+    .client-form input {
+        width: 80%;
+    }
+}
+
+@media (max-width: 820px) {
+    table {
+        min-width: 400px;
+    }
+    .buttons {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .buttons button {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,72 @@
+<div class="table-container">
+    <div class="back" (click)="goBack()">
+        <span>Volver</span>
+    </div>
+    <div class="mat-table">
+        <div class="top-container">
+            <h1 class="title">Administrar Empleados</h1>
+        </div>
+        <div class="table-pag">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- Columna ID -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.id }}</td>
+                </ng-container>
+
+                <!-- Columna Username -->
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef>Usuario</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.username }}</td>
+                </ng-container>
+
+                <!-- Columna Email -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef>Correo electrónico</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.email }}</td>
+                </ng-container>
+
+                <!-- Columna Phone -->
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef>Celular</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.phone }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="rol">
+                    <th mat-header-cell *matHeaderCellDef>Permisos</th>
+                    <td mat-cell *matCellDef="let usuario">
+                        <ng-container *ngIf="usuario.roles[0].name === 'EMPLOYEE'; else notPermitted">
+                            Permitido
+                        </ng-container>
+                        <ng-template #notPermitted>
+                            No permitido
+                        </ng-template>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let usuario">
+                        <mat-slide-toggle color="primary" *ngIf="usuario.roles[0].name !== 'USER'"
+                            [checked]="isChecked(usuario)" (change)="togglePermission($event, usuario)">
+                        </mat-slide-toggle>
+                        <mat-slide-toggle color="primary" *ngIf="usuario.roles[0].name === 'USER'"
+                            [checked]="isChecked(usuario)" (change)="togglePermission($event, usuario)">
+                        </mat-slide-toggle>
+                    </td>
+                </ng-container>
+
+
+
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator class="mat-paginator" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

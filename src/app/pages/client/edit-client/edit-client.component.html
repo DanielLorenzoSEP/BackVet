@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="form">
+        <div class="back" (click)="onCancelClick()">
+            <mat-icon>cancel</mat-icon>
+        </div>
+        <h1 class="title">Editar cliente</h1>
+        <form (ngSubmit)="onSubmit()" [formGroup]="editClientForm">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input class="input" type="email" id="email" name="email" formControlName="email"
+                    placeholder="Correo electrónico" required>
+                <mat-error
+                    *ngIf="editClientForm.get('email')?.touched && editClientForm.get('email')?.errors?.['required']">El
+                    correo electrónico es requerido</mat-error>
+                <mat-error
+                    *ngIf="editClientForm.get('email')?.errors?.['email'] && editClientForm.get('email')?.errors?.['pattern']">Ingresa
+                    un correo electrónico válido</mat-error>
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input class="input" type="text" id="phone" name="phone" formControlName="phone"
+                    placeholder="Número de teléfono" required (keypress)="keyPress($event)">
+                <mat-error
+                    *ngIf="editClientForm.get('phone')?.touched && editClientForm.get('phone')?.errors?.['required']">El
+                    número de teléfono es requerido</mat-error>
+                <mat-error *ngIf="editClientForm.get('phone')?.errors?.['pattern']">Ingresa un número de teléfono
+                    válido</mat-error>
+                <mat-error *ngIf="editClientForm.get('phone')?.errors?.['minlength']">Ingresa 10 dígitos</mat-error>
+                <mat-error *ngIf="editClientForm.get('phone')?.errors?.['maxlength']">Ingresa sólo 10
+                    dígitos</mat-error>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Ciudad</label>
+                <input class="input" type="text" id="city" name="city" formControlName="city" placeholder="Ciudad"
+                    required>
+                <mat-error
+                    *ngIf="editClientForm.get('city')?.touched && editClientForm.get('city')?.errors?.['required']">La
+                    ciudad es requerida</mat-error>
+                <mat-error *ngIf="editClientForm.get('city')?.errors?.['pattern']">Ingresa una ciudad válida</mat-error>
+            </div>
+
+            <div class="form-group municipio">
+                <label for="municipality">Municipio</label>
+                <input class="input" type="text" id="municipality" name="municipality" formControlName="municipality"
+                    placeholder="Municipio" required>
+                <mat-error
+                    *ngIf="editClientForm.get('municipality')?.touched && editClientForm.get('municipality')?.errors?.['required']">El
+                    municipio es requerido</mat-error>
+                <mat-error *ngIf="editClientForm.get('municipality')?.errors?.['pattern']">Ingresa un municipio
+                    válido</mat-error>
+            </div>
+
+            <div class="form-group calle">
+                <label for="street">Calle</label>
+                <input class="input" type="text" id="street" name="street" formControlName="street" placeholder="Calle"
+                    required>
+                <mat-error
+                    *ngIf="editClientForm.get('street')?.touched && editClientForm.get('street')?.errors?.['required']">La
+                    calle es requerida</mat-error>
+                <mat-error *ngIf="editClientForm.get('street')?.errors?.['pattern']">Ingresa una calle
+                    válida</mat-error>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Nombre del cliente</label>
+                <input class="input" type="username" id="username" name="username" formControlName="username"
+                    placeholder="Nombre del cliente" required>
+                <mat-error
+                    *ngIf="editClientForm.get('username')?.touched && editClientForm.get('username')?.errors?.['required']">El
+                    usuario es requerido</mat-error>
+                <mat-error *ngIf="editClientForm.get('username')?.errors?.['minlength']">Ingresa más de 6
+                    caracteres</mat-error>
+                <mat-error *ngIf="editClientForm.get('username')?.errors?.['pattern']">No ingreses caracteres inválidos
+                    o
+                    espacios</mat-error>
+            </div>
+            <div class="btnContainer">
+                <button [disabled]="!editClientForm.valid"
+                    [ngClass]="{'btnSubmit': editClientForm.valid, 'btnDisabled': !editClientForm.valid}"
+                    type="submit">Actualizar</button>
+                <button class="btnCancel" type="button" (click)="onCancelClick()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

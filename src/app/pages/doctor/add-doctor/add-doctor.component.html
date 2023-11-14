@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="back" (click)="goBack()">
+        <span>Volver</span>
+    </div>
+    <div class="form">
+        <h1 class="title">Agregar médico</h1>
+        <form (ngSubmit)="onSubmit()" [formGroup]="doctorForm">
+            <div class="form-group">
+                <label for="name">Nombre(s)</label>
+                <input class="input" type="text" id="name" name="name" formControlName="name" placeholder="Nombre"
+                    required>
+                <mat-error *ngIf="doctorForm.get('name')?.touched && doctorForm.get('name')?.errors?.['required']">El
+                    nombre es requerido</mat-error>
+                <mat-error *ngIf="doctorForm.get('name')?.touched && doctorForm.get('name')?.errors?.['pattern']">El
+                    nombre contiene caracteres inválidos</mat-error>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Apellidos</label>
+                <input class="input" type="text" id="lastname" name="lastname" formControlName="lastname"
+                    placeholder="Apellido" required>
+                <mat-error
+                    *ngIf="doctorForm.get('lastname')?.touched && doctorForm.get('lastname')?.errors?.['required']">El
+                    apellido es requerido</mat-error>
+                <mat-error
+                    *ngIf="doctorForm.get('lastname')?.touched && doctorForm.get('lastname')?.errors?.['pattern']">El
+                    apellido contiene caracteres inválidos</mat-error>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input class="input" type="email" id="email" name="email" formControlName="email"
+                    placeholder="Correo electrónico" required>
+                <mat-error *ngIf="doctorForm.get('email')?.touched && doctorForm.get('email')?.errors?.['required']">El
+                    correo electrónico es requerido</mat-error>
+                <mat-error *ngIf="doctorForm.get('email')?.touched && doctorForm.get('email')?.errors?.['email']">El
+                    correo electrónico es inválido</mat-error>
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input class="input" type="tel" id="phone" name="phone" formControlName="phone" placeholder="Teléfono"
+                    required (keypress)="keyPress($event)">
+                <mat-error *ngIf="doctorForm.get('phone')?.touched && doctorForm.get('phone')?.errors?.['required']">El
+                    teléfono es requerido</mat-error>
+                <mat-error *ngIf="doctorForm.get('phone')?.touched && doctorForm.get('phone')?.errors?.['maxlength']">El
+                    teléfono debe contener 10 dígitos</mat-error>
+                <mat-error *ngIf="doctorForm.get('phone')?.touched && doctorForm.get('phone')?.errors?.['minlength']">El
+                    teléfono debe contener 10 dígitos</mat-error>
+            </div>
+            <div class="form-group">
+                <label for="status">Estatus</label>
+                <mat-select class="input" id="status" placeholder="Selecciona un estatus" name="status"
+                    formControlName="status" required>
+                    <mat-option value="Activo">Activo</mat-option>
+                    <mat-option value="Inactivo">Inactivo</mat-option>
+                </mat-select>
+                <mat-error
+                    *ngIf="doctorForm.get('status')?.touched && doctorForm.get('status')?.errors?.['required']">El
+                    estado es requerido</mat-error>
+            </div>
+
+            <!-- ... Otros campos ... -->
+            <div class="btnContainer">
+                <button [disabled]="!doctorForm.valid"
+                    [ngClass]="{'btnSubmit': doctorForm.valid, 'btnDisabled': !doctorForm.valid}" type="submit">Agregar
+                    médico</button>
+                <button class="btnCancel" type="button" (click)="goBack()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

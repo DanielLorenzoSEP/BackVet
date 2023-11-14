@@ -1,0 +1,60 @@
+<div class="table-container">
+    <div class="back" (click)="goBack()">
+        <span>Volver</span>
+    </div>
+    <div class="mat-table">
+        <div class="top-container">
+            <h1 class="title">Clientes</h1>
+            <div class="search">
+                <input matInput (keyup)="filter($event)" placeholder="Buscar">
+                <!-- <button (click)="goNewClient()">Agregar cliente</button> -->
+            </div>
+        </div>
+        <div class="table-pag">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- Columna ID -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.id }}</td>
+                </ng-container>
+
+                <!-- Columna Username -->
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef>Usuario</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.username }}</td>
+                </ng-container>
+
+                <!-- Columna Email -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef>Correo electrónico</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.email }}</td>
+                </ng-container>
+
+                <!-- Columna Phone -->
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef>Celular</th>
+                    <td mat-cell *matCellDef="let usuario">{{ usuario.phone }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <mat-icon (click)="goNewClient()">person_add</mat-icon>
+                    </th>
+                    <td mat-cell *matCellDef="let usuario">
+                        <div class="icons">
+                            <mat-icon class="icon" (click)="onRowClick(usuario)">visibility</mat-icon>
+                            <mat-icon class="icon" (click)="deleteUser(usuario.id)">delete</mat-icon>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator class="mat-paginator" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

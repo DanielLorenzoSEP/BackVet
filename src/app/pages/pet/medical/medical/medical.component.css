@@ -1,0 +1,41 @@
+.diagnosis-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.patient-info {
+  margin-bottom: 10px;
+}
+
+.diagnosis-details {
+  border-top: 1px solid #ccc;
+  padding-top: 2rem;
+  margin-top: 10px;
+}
+
+h2 {
+  color: #333;
+}
+
+h3 {
+  color: #444;
+}
+
+h3 span {
+  display: block;
+}
+
+p {
+  line-height: 1.5;
+}

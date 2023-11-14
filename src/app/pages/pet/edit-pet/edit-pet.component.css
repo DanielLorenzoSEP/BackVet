@@ -1,0 +1,184 @@
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 90%;
+    height: 80vh;
+    padding-bottom: 10rem;
+    border-radius: 6px;
+    font-weight: 200;
+    overflow: auto;
+}
+
+.back {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    padding: .2rem;
+    border-radius: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+}
+
+.back mat-icon {
+    font-size: 2.3rem !important;
+    padding: 1rem;
+    padding-top: 0;
+    color: #dc3545;
+}
+
+.form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 1rem;
+}
+
+.form-group {
+    font-size: .9rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+
+.formB {
+    margin-bottom: .5rem;
+}
+
+.input {
+    margin-top: 8px;
+    padding: .9rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+}
+
+.bd {
+    font-size: .7rem;
+    display: block;
+    line-height: .5rem;
+    margin-bottom: -.3rem;
+}
+
+.option {
+    color: black;
+}
+
+.link {
+    color: #2962ff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 70%;
+}
+
+.btnSubmit,
+.btnCancel {
+    margin: auto;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    border: thin solid #0035c5;
+    border-radius: 0.30rem;
+    font-size: 1.1rem;
+    background-color: #0035c5;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+
+.btnSubmit {
+    margin-right: 1rem;
+}
+
+.btnCancel {
+    margin-left: 1rem;
+    background-color: #dc3545;
+    border: thin solid #dc3545;
+    color: #fff;
+}
+
+.btnCancel:hover {
+    background-color: #fff;
+    color: #dc3545;
+    border: thin solid #dc3545;
+}
+
+.btnSubmit:hover {
+    background-color: #fff;
+    color: #0035c5;
+    border: thin solid #0035c5;
+}
+
+.btnDisabled {
+    cursor: not-allowed !important;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    border: thin solid #2e82d7;
+    border-radius: 0.30rem;
+    font-size: 1.1rem;
+    background-color: #2e82d7;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 700px) {
+    .container {
+        padding-top: 3rem 0;
+    }
+
+    .form-group {
+        width: 90% !important;
+    }
+
+    .btnContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btnSubmit, .btnCancel {
+        margin: auto;
+        width: 90%;
+    }
+
+    .btnSubmit {
+        margin-bottom: 1rem;
+    }
+}
