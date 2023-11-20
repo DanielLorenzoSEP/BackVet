@@ -91,7 +91,7 @@ public class EmailServiceImpl implements EmailService {
                 if (storedCode.equals(submittedCode)) {
                     UserEntity user = userRepository.findByEmail(email).get();
                     RoleEntity role = user.getRoles().stream().reduce((role1, role2) -> role1).get();
-                    role.setName(ERole.valueOf("USER"));
+                    role.setName(ERole.valueOf("EMPLOYEE"));
                     userRepository.save(user);
                     /*emailCodeDTORepository.deleteById(tempEmail.get().getId());*/
                     return resp = true;
